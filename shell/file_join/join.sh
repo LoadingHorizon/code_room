@@ -23,7 +23,7 @@
 
 
 # 例子：
-#   将./data目录下book_author和book_price和并成book_info到result目录下
+#   将./data目录下book_author和book_price和并成book_info到当前目录下
 #   book_author的格式为book\tauthor，book_price的格式为book\tprice
 #   合并后book_info格式为book\tauthor\tbook_price
 
@@ -31,7 +31,7 @@ DATADIR="./data"
 INFILE1="book_author"
 INFILE2="book_price"
 
-RESULTDIR="./result"
+RESULTDIR="."
 OUTFILE="book_info"
 
 # 1、添加文件标识
