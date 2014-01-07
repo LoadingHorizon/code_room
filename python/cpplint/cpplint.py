@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# coding: UTF-8
 #
 # Copyright (c) 2009 Google Inc. All rights reserved.
 #
@@ -27,6 +28,12 @@
 # THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+# <<< comment by hatlonely 2014-1-7 19:03:59
+# 这个文件是谷歌代码风格检查工具
+# 以 # <<< 开始，以 # >>> 结束部分为LoadingHorizon所修改
+# 最近一次更新：2014-1-7 19:22:41
+# >>> comment by hatlonely 2014-1-7 19:04:18
 
 """Does google-lint on c++ files.
 
@@ -1996,7 +2003,12 @@ class _NestingState(object):
         # Check that access keywords are indented +1 space.  Skip this
         # check if the keywords are not preceded by whitespaces.
         indent = access_match.group(1)
-        if (len(indent) != classinfo.class_indent + 1 and
+        # <<< comment by hatlonely 2014-1-7 19:09:59
+        # 谷歌C++规范中规定关键字private/public/protected/signals缩进一个空格
+        # LoadingHorizon规范此处不缩进
+        if (len(indent) != classinfo.class_indent and
+        # >>> comment by hatlonely 2014-1-7 19:10:11
+        #if (len(indent) != classinfo.class_indent + 1 and
             Match(r'^\s*$', indent)):
           if classinfo.is_struct:
             parent = 'struct ' + classinfo.name
