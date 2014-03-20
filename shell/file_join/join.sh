@@ -51,9 +51,10 @@ awk 'BEGIN{ FS = OFS = "\t"; book = ""; author = "" } {
         next;
     } else if ($2 == 1) { 
         if ($1 == book) { 
-            print $1, author, $3 } 
+            print $1, author, $3
         } 
-    }' $OUTFILE.tmp.sort > $RESULTDIR/$OUTFILE
+    } 
+}' $OUTFILE.tmp.sort > $RESULTDIR/$OUTFILE
 
 # 清理中间文件
 rm *.mark
